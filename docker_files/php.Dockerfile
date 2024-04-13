@@ -13,8 +13,3 @@ RUN apk update && apk add \
 
 RUN docker-php-ext-install pdo pdo_mysql \
     && apk --no-cache add nodejs npm
-
-USER root
-
-RUN chmod 777 -R /var/www/laravel
-

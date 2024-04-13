@@ -1,5 +1,9 @@
 version: "3.8"
 
+networks:
+  internal:
+    driver: bridge
+
 services:
   nginx:
     image: nginx:stable-alpine
@@ -38,6 +42,8 @@ services:
       dockerfile: composer.Dockerfile
     volumes:
       - ./laravel:/var/www/laravel
+    networks:
+      - internal
   artisan:
     build:
       context: docker_files
@@ -45,7 +51,5 @@ services:
     volumes:
       - ./laravel:/var/www/laravel
     entrypoint: ["php", "/var/www/laravel/artisan"]
-
-networks:
-  internal:
-    driver: bridge
+    networks:
+      - internal
