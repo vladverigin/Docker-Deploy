@@ -14,13 +14,25 @@ services:
       - ./laravel:/var/www/laravel
     depends_on:
       - laravel
+      - supervisor
       - mariadb
+      - pma
     networks:
       - internal
   laravel:
+    ports:
+      - "8080:8080"
     build:
       context: docker_files
       dockerfile: php.Dockerfile
+    volumes:
+      - ./laravel:/var/www/laravel
+    networks:
+      - internal
+  supervisor:
+    build:
+      context: .
+      dockerfile: docker_files/supervisor.dockerfile
     volumes:
       - ./laravel:/var/www/laravel
     networks:
@@ -35,7 +47,32 @@ services:
       - ./mariadb:/var/lib/mysql
     networks:
       - internal
-
+  pma:
+    image: phpmyadmin
+    env_file:
+      - ./env/db.env
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+      - laravel
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    ports:
+      - 8888:80
+    networks:
+    - internal
+  # vue:
+  #   build:
+  #     context: resources/frontend/app
+  #     dockerfile: vue.Dockerfile
+  #   volumes:
+  #     - ./resources/frontend/app:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - '8010:8080'
+  #   networks:
+  #     - internal
   composer:
     build:
       context: docker_files
