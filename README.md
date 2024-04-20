@@ -1,3 +1,4 @@
+![PHP version](https://img.shields.io/badge/Powered%20by-PHP%208.2-blue.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/vladverigin/Docker-Deploy)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/vladverigin/Docker-Deploy)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vladverigin/Docker-Deploy)
