@@ -1,4 +1,4 @@
-/.idea/
+/.idea/*
 /mariadb/
 mariadb/.my-healthcheck.cnf
 mariadb/ddl_recovery.log
