@@ -24,3 +24,5 @@ mariadb/laravel/sessions.ibd
 mariadb/laravel/users.frm
 mariadb/laravel/users.ibd
 mariadb/tc.log
+.idea/Docker-Deploy.iml
+.idea/php.xml
