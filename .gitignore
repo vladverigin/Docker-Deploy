@@ -1,3 +1,4 @@
+/.idea/
 /mariadb/
 mariadb/.my-healthcheck.cnf
 mariadb/ddl_recovery.log
@@ -23,4 +24,3 @@ mariadb/laravel/sessions.ibd
 mariadb/laravel/users.frm
 mariadb/laravel/users.ibd
 mariadb/tc.log
-/.idea
